@@ -10,3 +10,7 @@ const connectDatabase = () => {
 };
 
 module.exports = connectDatabase;
+
+/* git remote add origin https://github.com/Chirag550/MERN-ECOMMERCE.git
+git branch -M main
+git push -u origin main */
