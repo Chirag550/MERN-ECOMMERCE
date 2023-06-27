@@ -6,7 +6,7 @@ const router = express.Router();
 const productController = require("../controllers/ProductController");
 
 router.post(
-  "/products/new",
+  "/admin/products/new",
   isAuth,
   authorizeRoles("admin"),
   productController.createProducts
@@ -14,18 +14,36 @@ router.post(
 router.get("/products", productController.getAllProducts);
 
 router.put(
-  "/products/:productid",
+  "/admin/products/:productid",
   isAuth,
   authorizeRoles("admin"),
   productController.updateProduct
 );
 
 router.delete(
-  "/products/:productid",
+  "/admin/products/:productid",
   isAuth,
   authorizeRoles("admin"),
   productController.deleteProduct
 );
 router.get("/products/:productid", productController.getproductDetails);
 
+router.put(
+  "/review ",
+  isAuth,
+
+  productController.createProductReview
+);
+
+router.get(
+  "/reviews ",
+
+  productController.getProductReviews
+);
+router.delete(
+  "/reviews ",
+  isAuth,
+
+  productController.deleteReviews
+);
 module.exports = router;
