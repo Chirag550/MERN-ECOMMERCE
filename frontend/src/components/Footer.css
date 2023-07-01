@@ -1,0 +1,73 @@
+.footer {
+  margin-top: 10vmax;
+  padding: 2vmax;
+  display: flex;
+  background-color: rgb(34, 33, 33);
+  flex-direction: row;
+  color: white;
+  align-items: center;
+}
+
+.leftFooter {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leftFooter > h4 {
+  font-family: "Roboto";
+  font-size: 1vmax;
+}
+
+.leftFooter > p {
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1vmax;
+}
+.leftFooter > img {
+  width: 10vmax;
+  margin: 1vmax;
+  cursor: pointer;
+
+  font-family: "Roboto";
+}
+
+.midFooter {
+  width: 60%;
+  text-align: center;
+}
+.midFooter > h1 {
+  font-size: 4vmax;
+  font-family: "Roboto";
+}
+
+.midFooter > p {
+  max-width: 60%;
+  margin: 1vmax auto;
+}
+
+.rightFooter {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightFooter > h4 {
+  font-size: 1vmax;
+  font-family: "Roboto";
+
+  text-decoration: underline;
+}
+
+.rightFooter > a {
+  text-decoration: none;
+  font-size: 2vmax;
+  font-family: "Roboto";
+  color: white;
+  margin: 0.5vmax;
+  transition: all 0.5s;
+}
+.rightFooter > a:hover {
+  color: #eb4034;
+}
