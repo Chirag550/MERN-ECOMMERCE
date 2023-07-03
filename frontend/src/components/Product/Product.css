@@ -12,3 +12,50 @@
   flex-wrap: wrap;
   padding: 0 5vmax;
 }
+
+.paginationbox {
+  display: flex;
+  justify-content: center;
+  margin: 6vmax;
+}
+.pagination {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+.page-item {
+  background-color: rgb(255, 255, 255);
+  list-style: none;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  padding: 1vmax 1.5vmax;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.page-item:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child {
+  border-radius: 5px;
+}
+.page-link {
+  text-decoration: none;
+  font: 300 0.7max "Roboto";
+  color: rgb(80 80 80);
+  transition: all 0.3s;
+}
+.page-item:hover {
+  background-color: rgb(164, 162, 162);
+}
+.page-item:hover .page-link {
+  color: white;
+}
+.pageitemActive {
+  background-color: tomato;
+}
+
+.pageLinkActive {
+  color: white;
+}

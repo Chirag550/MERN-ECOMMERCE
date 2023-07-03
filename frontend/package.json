@@ -20,6 +20,7 @@
     "react-alert-template-basic": "^1.0.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-js-pagination": "^3.0.3",
     "react-material-ui-carousel": "^2.3.11",
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^8.1.1",
