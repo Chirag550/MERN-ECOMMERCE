@@ -12,13 +12,16 @@ exports.createProducts = catchAsynError(async (req, res, next) => {
 });
 
 exports.getAllProducts = catchAsynError(async (req, res, next) => {
-  const resultperpage = 5;
-  const apifeatures = new ApiFeatures(Product, req.query)
+  const productCount = await Product.countDocuments();
+  const resultperpage = 8;
+  const apifeatures = new ApiFeatures(Product.find(), req.query)
     .Search()
     .filter()
     .pagination(resultperpage);
   const products = await apifeatures.query;
-  res.status(200).json({ message: "get products sucessfully", products });
+  res
+    .status(200)
+    .json({ message: "get products sucessfully", products, productCount });
 });
 
 exports.updateProduct = catchAsynError(async (req, res, next) => {

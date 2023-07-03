@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
-import Product from "./Product";
+import Product from "./ProductCard";
+import { getProduct } from "../../REDUX/actions/ProductAction";
+import { useSelector, useDispatch } from "react-redux";
+import Loader from "../Layout/Loader/Loader";
+import { useAlert } from "react-alert";
+import { clearErrors } from "../../REDUX/actions/ProductAction";
+
 const Home = () => {
-  const product = [
-    {
-      name: "Blue Tshirt",
-      images: [
-        {
-          url: "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3b%2F26%2F3b26a831f18321056a12324a6f44a8c01b8ee8ff.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
-        },
-      ],
-      price: "$3000",
-      _id: "chirag",
-    },
-    {},
-  ];
+  const alert = useAlert();
+  const dispatch = useDispatch();
+  const { loading, error, products, productCount } = useSelector(
+    (state) => state.products
+  );
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    dispatch(getProduct());
+    console.log(dispatch);
+  }, [dispatch, error, alert]);
+
+  if (loading) return <Loader />;
   return (
     <>
       <div className="banner">
@@ -28,14 +36,7 @@ const Home = () => {
       <h2 className="homeHeading">Featured Products</h2>
 
       <div className="container" id="container">
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+        {products && products.map((product) => <Product product={product} />)}
       </div>
     </>
   );
