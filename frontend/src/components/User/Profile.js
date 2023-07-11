@@ -5,16 +5,23 @@ import { useSelector } from "react-redux";
 import Loader from "../Layout/Loader/Loader";
 import { useEffect } from "react";
 import "./Profile.css";
+import { useLocation } from "react-router-dom";
 
 const Profile = () => {
+  const ontop = () => {
+    window.scrollTo(0, 0);
+  };
   const navigate = useNavigate();
+  const routepath = useLocation();
   const { isAuthenticated, user, loading } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
     }
-  }, [isAuthenticated, navigate]);
+    ontop();
+  }, [isAuthenticated, navigate, routepath]);
+
   if (loading) return <Loader />;
 
   return (

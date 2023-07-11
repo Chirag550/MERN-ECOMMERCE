@@ -75,7 +75,7 @@ exports.forgetPassword = catchAsynError(async (req, res, next) => {
     "host"
   )}/api/v1/reset/${resetToken}`;
 
-  const Message = `Your Pssword Reset Token is :- \n\n ${ResetUrl} \n\n if you have not requested password reset ,then please ignore it`;
+  const Message = `Your Password Reset Token is :- \n\n ${ResetUrl} \n\n if you have not requested password reset ,then please ignore it`;
 
   try {
     await SendMail({
@@ -159,6 +159,23 @@ exports.updateProfile = catchAsynError(async (req, res, next) => {
     email: req.body.email,
   };
 
+  if (req.body.avatar !== "") {
+    const user = await User.findById(req.user.id);
+    const imageId = user.avatar.public_id;
+
+    await cloudinary.v2.uploader.destroy(imageId);
+
+    const mycloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: "avatars",
+      width: 150,
+      crop: "scale",
+    });
+
+    newUserData.avatar = {
+      public_id: mycloud.public_id,
+      url: mycloud.secure_url,
+    };
+  }
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
     runValidators: true,

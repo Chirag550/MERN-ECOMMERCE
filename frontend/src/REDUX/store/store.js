@@ -8,12 +8,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { productReducer } from "../reducers/productReducer";
 import { productDetailsReducer } from "../reducers/productReducer";
 
-import { userReducer } from "../reducers/userReducer";
+import { userReducer, ProfileReducer } from "../reducers/userReducer";
 
 const reducer = combineReducers({
   products: productReducer,
   productDetails: productDetailsReducer,
   user: userReducer,
+  profile: ProfileReducer,
 });
 const initialState = {};
 
