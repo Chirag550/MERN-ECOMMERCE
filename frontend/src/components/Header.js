@@ -28,6 +28,7 @@ const Header = () => {
       profileIcon={true}
       ProfileIconElement={MdAccountCircle}
       profileIconColor="rgba(35 , 35 ,35 , 0.8)"
+      profileIconUrl="/login"
       profileIconColorHover="eb4034"
       profileIconMargin="1vmax"
       link1Text="Home"

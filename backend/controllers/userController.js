@@ -4,8 +4,14 @@ const catchAsynError = require("../middleware/catchAsynError");
 const SendToken = require("../utils/jwtToken");
 const SendMail = require("../utils/SendEmail");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary");
 
 exports.registerUser = catchAsynError(async (req, res, next) => {
+  const mycloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    folder: "avatars",
+    width: 150,
+    crop: "scale",
+  });
   const { name, email, password } = req.body;
 
   const user = await User.create({
@@ -13,8 +19,8 @@ exports.registerUser = catchAsynError(async (req, res, next) => {
     email,
     password,
     avatar: {
-      public_id: "this is a sample id",
-      url: "profilepictureurl",
+      public_id: mycloud.public_id,
+      url: mycloud.secure_url,
     },
   });
 
@@ -29,7 +35,6 @@ exports.loginUser = catchAsynError(async (req, res, next) => {
   }
 
   const user = await User.findOne({ email: email }).select("+password");
-  console.log(user.comparePassword(password));
 
   if (!user) {
     return next(new Errorhandler("Invalid Email and password", 401));

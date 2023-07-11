@@ -16,14 +16,21 @@ exports.getAllProducts = catchAsynError(async (req, res, next) => {
   const resultperpage = 3;
   const apifeatures = new ApiFeatures(Product.find(), req.query)
     .Search()
-    .filter()
-    .pagination(resultperpage);
-  const products = await apifeatures.query;
+    .filter();
+
+  let products = await apifeatures.query;
+  let filteredCount = products.length;
+
+  apifeatures.pagination(resultperpage);
+
+  products = await apifeatures.query.clone();
+
   res.status(200).json({
     message: "get products sucessfully",
     products,
     productsCount,
     resultperpage,
+    filteredCount,
   });
 });
 
