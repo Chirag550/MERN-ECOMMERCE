@@ -19,11 +19,15 @@ import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
+import ForgotPassword from "./components/User/ForgotPassword";
+import ResetPassword from "./components/User/ResetPassword";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log("i am rendered");
   console.log(isAuthenticated);
+  localStorage.setItem("chirag", "set");
   useEffect(() => {
     WebFont.load({
       google: {
@@ -63,6 +67,13 @@ function App() {
           path="/password/update"
           element={<ProtectedRoute element={UpdatePassword} />}
         />
+        <Route exact path="/cart" element={<Cart />}></Route>
+        <Route
+          exact
+          path="/password/forgot"
+          element={<ForgotPassword />}
+        ></Route>
+        <Route exact path="/reset/:token" element={<ResetPassword />}></Route>
 
         {/* <Route exact path="/nav" element={<Navbar />}></Route> */}
       </Routes>

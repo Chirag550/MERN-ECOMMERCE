@@ -60,6 +60,7 @@ exports.Logout = catchAsynError(async (req, res, next) => {
 });
 
 exports.forgetPassword = catchAsynError(async (req, res, next) => {
+  console.log(req.body.email);
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
@@ -71,9 +72,10 @@ exports.forgetPassword = catchAsynError(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const ResetUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/v1/reset/${resetToken}`;
+  // const ResetUrl = `${req.protocol}://${req.get(
+  //   "host"
+  // )}/api/v1/reset/${resetToken}`;
+  const ResetUrl = `${process.env.FRONTEND}/reset/${resetToken}`;
 
   const Message = `Your Password Reset Token is :- \n\n ${ResetUrl} \n\n if you have not requested password reset ,then please ignore it`;
 
@@ -113,11 +115,11 @@ exports.resetPassword = catchAsynError(async (req, res, next) => {
     );
   }
 
-  if (req.body.password !== req.body.confirmPassword) {
+  if (req.body.newpassword !== req.body.confirmPassword) {
     return next(new Errorhandler("Password Doesn't Match", 400));
   }
 
-  user.password = req.body.password;
+  user.password = req.body.newpassword;
   user.resetPasswordExpirationDate = undefined;
   user.resetPasswordToken = undefined;
   await user.save();

@@ -1,0 +1,59 @@
+.cartitemcard {
+  display: flex;
+  padding: 1vmax;
+  height: 8vmax;
+
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.cartitemcard > img {
+  width: 6vmax;
+}
+
+.cartitemcard > div {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3vmax 1vmax;
+}
+.cartitemcard > div > a {
+  font: 300 0.9vmax cursive;
+  text-decoration: none;
+  color: rgba(24, 24, 24, 0.815);
+}
+
+.cartitemcard > div > span {
+  font: 300 0.9vmax "Roboto";
+
+  color: rgba(24, 24, 24, 0.815);
+}
+
+.cartitemcard > div > p {
+  font: 300 0.9vmax "Roboto";
+  cursor: pointer;
+  color: tomato;
+}
+
+@media screen and (max-width: 600px) {
+  .cartitemcard {
+    padding: 3vmax;
+    height: 25vmax;
+  }
+  .cartitemcard > img {
+    width: 10vmax;
+  }
+  .cartitemcard > div {
+    margin: 1vmax 2vmax;
+  }
+  .cartitemcard > div > a {
+    font: 300 2vmax cursive;
+  }
+
+  .cartitemcard > div > span {
+    font: 300 1.8vmax "Roboto";
+  }
+  .cartitemcard > div > p {
+    font: 300 1.8vmax "Roboto";
+    cursor: pointer;
+    color: tomato;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,6 +12,7 @@ import ReviewCard from "./ReviewCard";
 import Loader from "../Layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { useLocation } from "react-router-dom";
+import { ADDTOCART } from "../../REDUX/actions/cartAction";
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
 
@@ -28,6 +29,19 @@ const ProductDetails = ({ match }) => {
     (state) => state.productDetails
   );
 
+  const [quantity, setquantity] = useState(1);
+
+  const increaseqty = () => {
+    if (product.Stock <= quantity) return;
+    const qty = quantity + 1;
+    setquantity(qty);
+  };
+  const decreaseqty = () => {
+    if (1 >= quantity) return;
+
+    const qty = quantity - 1;
+    setquantity(qty);
+  };
   useEffect(() => {
     ontop();
     if (error) {
@@ -36,6 +50,11 @@ const ProductDetails = ({ match }) => {
     }
     dispatch(getProductDetails(id));
   }, [dispatch, id, alert, error, routepath]);
+
+  const addtocarthandler = () => {
+    dispatch(ADDTOCART(id, quantity));
+    alert.success("Item Added To Cart");
+  };
 
   const options = {
     edit: false,
@@ -76,11 +95,11 @@ const ProductDetails = ({ match }) => {
             <h1>{`₹${product.price}`}</h1>
             <div className="DetailsBlock-3-1">
               <div className="DetailsBlock-3-1-1">
-                <button>-</button>
-                <input type="number" value="1" />
-                <button>+</button>
+                <button onClick={decreaseqty}>-</button>
+                <input type="number" readOnly value={quantity} />
+                <button onClick={increaseqty}>+</button>
               </div>
-              <button>Add to Cart</button>
+              <button onClick={addtocarthandler}>Add to Cart</button>
             </div>
             <p>
               Status:

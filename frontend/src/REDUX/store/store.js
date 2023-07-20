@@ -8,15 +8,28 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { productReducer } from "../reducers/productReducer";
 import { productDetailsReducer } from "../reducers/productReducer";
 
-import { userReducer, ProfileReducer } from "../reducers/userReducer";
+import {
+  userReducer,
+  ProfileReducer,
+  ForgotPasswordReducer,
+} from "../reducers/userReducer";
+import { CartReducer } from "../reducers/cartReducer";
 
 const reducer = combineReducers({
   products: productReducer,
   productDetails: productDetailsReducer,
   user: userReducer,
   profile: ProfileReducer,
+  forgot: ForgotPasswordReducer,
+  cart: CartReducer,
 });
-const initialState = {};
+const initialState = {
+  cart: {
+    cartitems: localStorage.getItem("cartitems")
+      ? JSON.parse(localStorage.getItem("cartitems"))
+      : [],
+  },
+};
 
 const middleware = [thunk];
 
