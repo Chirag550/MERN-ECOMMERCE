@@ -126,7 +126,7 @@
 
 @media screen and (max-width: 600px) {
   .CART_PAGE {
-    padding: 5vmax;
+    padding: 3.5vmax;
     min-height: 60vh;
   }
   .CART_HEADER {
@@ -142,17 +142,17 @@
     height: 13vmax;
   }
   .cardInput > button {
-    padding: 1.3vmax;
+    padding: 1vmax;
     font: 300 1vmax "Roboto";
   }
   .cardInput > input {
     width: 2vmax;
-    padding: 1.5vmax;
+    padding: 1vmax;
     font: 400 1.8vmax "Roboto";
   }
   .cartsubtotal {
     padding: 1.5vmax;
-    height: 20vmax;
+    height: 13vmax;
     font: 300 2vmax "Roboto";
   }
 
@@ -162,12 +162,12 @@
   }
   .cartgrossbox {
     padding: 2vmax 4vmax;
-    font: 400 2.3vmax "Roboto";
+    font: 300 2.3vmax "Roboto";
   }
   .checkoutbtn > button {
     padding: 2vmax;
     width: 90%;
     margin: auto;
-    font: 400 3vmax "Roboto";
+    font: 300 2vmax "Roboto";
   }
 }

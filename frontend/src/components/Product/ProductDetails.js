@@ -13,7 +13,7 @@ import Loader from "../Layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { useLocation } from "react-router-dom";
 import { ADDTOCART } from "../../REDUX/actions/cartAction";
-const ProductDetails = ({ match }) => {
+const ProductDetails = () => {
   const dispatch = useDispatch();
 
   const routepath = useLocation();
@@ -22,7 +22,7 @@ const ProductDetails = ({ match }) => {
     window.scrollTo(0, 0);
   };
 
-  let { id } = useParams();
+  const { id } = useParams();
   const alert = useAlert();
 
   const { product, loading, error } = useSelector(
@@ -42,8 +42,10 @@ const ProductDetails = ({ match }) => {
     const qty = quantity - 1;
     setquantity(qty);
   };
+
   useEffect(() => {
     ontop();
+
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -69,7 +71,7 @@ const ProductDetails = ({ match }) => {
   return (
     <>
       <div className="ProductDetails">
-        <div className="product">
+        <div>
           <Carousel className="carousel">
             {product.images &&
               product.images.map((item, i) => (

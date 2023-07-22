@@ -14,6 +14,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "country-state-city": "^3.1.4",
     "mdb-react-ui-kit": "^6.1.0",
     "overlay-navbar": "^1.2.3",
     "react": "^18.2.0",
@@ -57,5 +58,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.1.2:4000"
+  "proxy": "http://192.168.1.7:4000"
 }

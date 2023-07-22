@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CartItemCard from "./CartItemCard";
 import "./Cart.css";
 import { useSelector } from "react-redux";
@@ -6,9 +6,14 @@ import { useDispatch } from "react-redux";
 import { ADDTOCART, REMOVECART } from "../../REDUX/actions/cartAction";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const Cart = () => {
+  const ontop = () => {
+    window.scrollTo(0, 0);
+  };
+  const routepath = useLocation();
+  const navigate = useNavigate();
   const { cartitems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const increaseqty = (id, quantity, stock) => {
@@ -26,6 +31,14 @@ const Cart = () => {
 
     dispatch(ADDTOCART(id, newqty));
   };
+
+  const checkouthandler = () => {
+    navigate("/login?redirect=shipping");
+  };
+
+  useEffect(() => {
+    ontop();
+  }, [routepath]);
   return (
     <>
       {cartitems.length === 0 ? (
@@ -71,11 +84,20 @@ const Cart = () => {
             <div></div>
             <div className="cartgrossbox">
               <p>Gross Total</p>
-              <p>{`$6000`}</p>
+              <p>{`$${cartitems.reduce(
+                (acc, item) => acc + item.quantity * item.price,
+                0
+              )}`}</p>
             </div>
             <div></div>
             <div className="checkoutbtn">
-              <button>Check Out</button>
+              <button
+                onClick={() => {
+                  checkouthandler();
+                }}
+              >
+                Check Out
+              </button>
             </div>
           </div>
         </div>

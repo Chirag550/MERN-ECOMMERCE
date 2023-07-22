@@ -1,4 +1,8 @@
-import { ADD_TO_CART, REMOTE_CART } from "../constants/cartConstants";
+import {
+  ADD_TO_CART,
+  REMOVE_CART,
+  SAVE_SHIPPING_INFO,
+} from "../constants/cartConstants";
 import axios from "axios";
 export const ADDTOCART = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/v1/products/${id}`);
@@ -18,6 +22,12 @@ export const ADDTOCART = (id, quantity) => async (dispatch, getState) => {
 };
 
 export const REMOVECART = (id) => async (dispatch, getState) => {
-  dispatch({ type: REMOTE_CART, payload: id });
+  dispatch({ type: REMOVE_CART, payload: id });
   localStorage.setItem("cartitems", JSON.stringify(getState().cart.cartitems));
+};
+
+export const SAVESHIPPINGINFO = (data) => async (dispatch, getState) => {
+  dispatch({ type: SAVE_SHIPPING_INFO, payload: data });
+
+  localStorage.setItem("shippinginfo", JSON.stringify(data));
 };

@@ -5,13 +5,15 @@ import { MdExitToApp } from "react-icons/md";
 import { MdListAlt } from "react-icons/md";
 import { MdPerson } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import "./useroptions.css";
 import { logout } from "../../REDUX/actions/userAction";
 import Backdrop from "@mui/material/Backdrop";
+import { MdShoppingCart } from "react-icons/md";
 
 const UserOptions = ({ user }) => {
+  const { cartitems } = useSelector((state) => state.cart);
   const [open, SetOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,9 +35,26 @@ const UserOptions = ({ user }) => {
     dispatch(logout());
     Alert.success("Logout Successfullly");
   }
+
+  function cart() {
+    navigate("/cart");
+  }
   const options = [
     { icon: <MdListAlt />, name: "Orders", func: orders },
     { icon: <MdPerson />, name: "Profile", func: account },
+    {
+      icon: (
+        <button type="button" className="cart-icon">
+          <span className="cart-item-qty">{cartitems.length}</span>
+
+          <MdShoppingCart
+            style={{ color: cartitems.length > 0 ? "tomato" : "unset" }}
+          />
+        </button>
+      ),
+      name: "Cart",
+      func: cart,
+    },
     { icon: <MdExitToApp />, name: "Logout", func: logoutUser },
   ];
 
@@ -56,6 +75,9 @@ const UserOptions = ({ user }) => {
         onClose={() => SetOpen(false)}
         onOpen={() => SetOpen(true)}
         open={open}
+        FabProps={{
+          color: "secondary",
+        }}
         direction="down"
         icon={
           <img className="speedDialIcon" src={user.avatar.url} alt="Profile" />
@@ -67,6 +89,7 @@ const UserOptions = ({ user }) => {
             icon={option.icon}
             tooltipTitle={option.name}
             onClick={option.func}
+            tooltipOpen={window.innerWidth <= 600 ? true : false}
           />
         ))}
       </SpeedDial>

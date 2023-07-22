@@ -8,11 +8,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, login, register } from "../../REDUX/actions/userAction";
 import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const LoginSignUp = () => {
   const loginTab = useRef(null);
   const RegisterTab = useRef(null);
   const switcherTab = useRef(null);
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  const redirect = location.search
+    ? `/${location.search.split("=")[1]}`
+    : "/account";
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
@@ -42,7 +48,7 @@ const LoginSignUp = () => {
     }
 
     if (isAuthenticated) {
-      navigate("/account");
+      navigate(redirect);
     }
   }, [error, dispatch, alert, isAuthenticated, navigate]);
 

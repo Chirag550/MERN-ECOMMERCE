@@ -6,6 +6,28 @@
 
 .speedDial {
   position: fixed;
-  right: 3vmax;
+  right: 4vmax;
   top: 3vmax;
+}
+.cart-icon {
+  font-size: 25px;
+  color: rgb(56, 55, 55);
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  transition: transform 0.4s ease;
+  border: none;
+  background-color: transparent;
+}
+.cart-item-qty {
+  position: absolute;
+  right: -9px;
+  font-size: 15px;
+  color: #eee;
+  background-color: rgb(213, 48, 19);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 500;
 }

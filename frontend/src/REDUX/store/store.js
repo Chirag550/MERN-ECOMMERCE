@@ -28,6 +28,9 @@ const initialState = {
     cartitems: localStorage.getItem("cartitems")
       ? JSON.parse(localStorage.getItem("cartitems"))
       : [],
+    shippingInfo: localStorage.getItem("shippinginfo")
+      ? JSON.parse(localStorage.getItem("shippinginfo"))
+      : [],
   },
 };
 

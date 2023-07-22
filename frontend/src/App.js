@@ -22,12 +22,12 @@ import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
 import ResetPassword from "./components/User/ResetPassword";
 import Cart from "./components/Cart/Cart";
+import Shipping from "./components/Cart/Shipping";
+import ConfirmOrder from "./components/Cart/ConfirmOrder";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  console.log("i am rendered");
-  console.log(isAuthenticated);
-  localStorage.setItem("chirag", "set");
+
   useEffect(() => {
     WebFont.load({
       google: {
@@ -41,10 +41,12 @@ function App() {
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
       <Routes>
+        <Route exact path="/product/:id" Component={ProductDetails}></Route>
         <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/product/:id" element={<ProductDetails />}></Route>
+
         <Route exact path="/products/:keyword" element={<Product />}></Route>
         <Route exact path="/products" element={<Product />}></Route>
+
         <Route exact path="/search" element={<Search />}></Route>
         <Route exact path="/login" element={<LoginSignUp />}></Route>
         {/* <ProtectedRoute
@@ -56,6 +58,16 @@ function App() {
           exact
           path="/account"
           element={<ProtectedRoute element={Profile} />}
+        />
+        <Route
+          exact
+          path="/shipping"
+          element={<ProtectedRoute element={Shipping} />}
+        />
+        <Route
+          exact
+          path="/order/confirm"
+          element={<ProtectedRoute element={ConfirmOrder} />}
         />
         <Route
           exact
