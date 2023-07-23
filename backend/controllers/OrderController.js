@@ -6,7 +6,7 @@ const Product = require("../models/product");
 exports.newOrder = CatchAsyncError(async (req, res, next) => {
   const {
     shippingInfo,
-    orderiten,
+    orderItems,
     paymentInfo,
     itemsPrice,
     taxPrice,
@@ -16,7 +16,7 @@ exports.newOrder = CatchAsyncError(async (req, res, next) => {
 
   const order = await Order.create({
     shippingInfo,
-    orderiten,
+    orderItems,
     paymentInfo,
     itemsPrice,
     taxPrice,
@@ -51,11 +51,11 @@ exports.getSingleOrder = CatchAsyncError(async (req, res, next) => {
 ///get logged in  users my Order
 
 exports.myOrder = CatchAsyncError(async (req, res, next) => {
-  const order = await Order.find({ user: req.user._id });
+  const orders = await Order.find({ user: req.user._id });
 
   res.status(200).json({
     success: true,
-    order,
+    orders,
   });
 });
 

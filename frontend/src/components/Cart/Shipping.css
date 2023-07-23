@@ -93,6 +93,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .stepper {
+    margin-top: 11vmax;
+  }
   .shippingContainer {
     margin-top: 5vmax;
     background-color: white;

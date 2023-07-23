@@ -1,3 +1,6 @@
+.stepper {
+  padding: 1vmax;
+}
 .confirmOrderPage {
   height: 100vh;
   display: grid;
@@ -161,5 +164,29 @@ confirmCartItemsContainer {
   }
   .confirmcartitemsbox > div > span {
     font: 100 4vw "Roboto";
+  }
+  .orderSummary {
+    padding: 12vmax;
+  }
+  .orderSummary > p {
+    font: 400 6vw "Roboto";
+  }
+  .orderSummary > div > div {
+    font: 300 4vw "Roboto";
+  }
+  .orderSummarytotal {
+    font: 300 4vw "Roboto";
+    padding: 5vw 0;
+  }
+  .orderSummary > button {
+    padding: 4vw;
+    margin: 4vw auto;
+    font: 400 4vw "Roboto";
+  }
+  .orderSummary > div > div > span {
+    font: 100 3vw "Roboto";
+  }
+  .orderSummarytotal > span {
+    font: 100 3vw "Roboto";
   }
 }

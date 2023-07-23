@@ -101,7 +101,8 @@
   align-items: center;
   flex-direction: column;
 
-  height: 100vh;
+  padding: 10vmax;
+  height: 50vh;
   margin: auto;
 }
 .emptyCart > svg {
@@ -117,8 +118,10 @@
   font: 400 1vmax "Roboto";
   text-decoration: none;
   padding: 1vmax 3vmax;
+  border-radius: 20px;
   border: none;
   color: white;
+  margin: 1vmax;
 }
 .emptyCart > a:hover {
   background-color: black;

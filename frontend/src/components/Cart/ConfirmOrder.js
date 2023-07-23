@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./ConfirmOrder.css";
+import { useNavigate } from "react-router-dom";
 
 const ConfirmOrder = () => {
   const { cartitems, shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   const address =
     shippingInfo.address +
@@ -27,6 +29,17 @@ const ConfirmOrder = () => {
   const shippingCharges = subtotal > 1000 ? 0 : 200;
   const tax = 0.18 * subtotal;
   const totalPrice = subtotal + tax + shippingCharges;
+
+  const ProceedToPayment = () => {
+    const data = {
+      subtotal,
+      totalPrice,
+      tax,
+      shippingCharges,
+    };
+    sessionStorage.setItem("orderInfo", JSON.stringify(data));
+    navigate("/process/payment");
+  };
   return (
     <>
       <CheckOutSteps activeStep={1} />
@@ -89,7 +102,7 @@ const ConfirmOrder = () => {
               </p>
               <span>${totalPrice}</span>
             </div>
-            <button>Proceed To Payment</button>
+            <button onClick={ProceedToPayment}>Proceed To Payment</button>
           </div>
         </div>
       </div>

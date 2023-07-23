@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import WebFont from "webfontloader";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import Search from "./components/Product/Search";
@@ -24,11 +24,25 @@ import ResetPassword from "./components/User/ResetPassword";
 import Cart from "./components/Cart/Cart";
 import Shipping from "./components/Cart/Shipping";
 import ConfirmOrder from "./components/Cart/ConfirmOrder";
+import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Payment from "./components/Cart/Payment";
+import Success from "./components/Cart/Success";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
+  const [StripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/StripeApiKey");
+
+    setStripeApiKey(data.StripeApiKey);
+  }
+
   useEffect(() => {
+    getStripeApiKey();
     WebFont.load({
       google: {
         families: ["Roboto", "Droid Sans", "Chilanka"],
@@ -85,6 +99,21 @@ function App() {
           path="/password/forgot"
           element={<ForgotPassword />}
         ></Route>
+        <Route
+          exact
+          path="/success"
+          element={<ProtectedRoute element={Success} />}
+        />
+        <Route
+          exact
+          path="/process/payment"
+          element={
+            <Elements stripe={loadStripe(StripeApiKey)}>
+              <ProtectedRoute element={Payment} />{" "}
+            </Elements>
+          }
+        />
+
         <Route exact path="/reset/:token" element={<ResetPassword />}></Route>
 
         {/* <Route exact path="/nav" element={<Navbar />}></Route> */}
