@@ -29,7 +29,7 @@ router.delete(
 router.get("/products/:productid", productController.getproductDetails);
 
 router.put(
-  "/review ",
+  "/review",
   isAuth,
 
   productController.createProductReview

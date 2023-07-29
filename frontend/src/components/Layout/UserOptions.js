@@ -20,7 +20,7 @@ const UserOptions = ({ user }) => {
   const Alert = useAlert();
 
   function Dashboard() {
-    navigate("/dashboard");
+    navigate("/admin");
   }
 
   function orders() {

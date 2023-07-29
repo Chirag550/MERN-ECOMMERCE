@@ -5,5 +5,5 @@ const paymentcontroller = require("../controllers/PaymentController");
 const router = express.Router();
 
 router.post("/payment/process", isAuth, paymentcontroller.processPayment);
-router.get("/StripeApiKey", isAuth, paymentcontroller.sendStripeAPiKey);
+router.get("/StripeApiKey", paymentcontroller.sendStripeAPiKey);
 module.exports = router;

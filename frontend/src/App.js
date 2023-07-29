@@ -29,6 +29,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Payment from "./components/Cart/Payment";
 import Success from "./components/Cart/Success";
+import MyOrder from "./components/Orders/MyOrder";
+import OrderDetails from "./components/Orders/OrderDetails";
+import Dashboard from "./components/Admin/Dashboard";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -42,13 +45,13 @@ function App() {
   }
 
   useEffect(() => {
-    getStripeApiKey();
     WebFont.load({
       google: {
         families: ["Roboto", "Droid Sans", "Chilanka"],
       },
     });
     store.dispatch(loadUser());
+    getStripeApiKey();
   }, []);
   return (
     <Router>
@@ -75,8 +78,18 @@ function App() {
         />
         <Route
           exact
+          path="/myorder/:id"
+          element={<ProtectedRoute element={OrderDetails} />}
+        />
+        <Route
+          exact
           path="/shipping"
           element={<ProtectedRoute element={Shipping} />}
+        />
+        <Route
+          exact
+          path="/orders"
+          element={<ProtectedRoute element={MyOrder} />}
         />
         <Route
           exact
@@ -104,14 +117,22 @@ function App() {
           path="/success"
           element={<ProtectedRoute element={Success} />}
         />
+        {StripeApiKey && (
+          <Route
+            exact
+            path="/process/payment"
+            element={
+              <Elements stripe={loadStripe(StripeApiKey)}>
+                <ProtectedRoute element={Payment} />{" "}
+              </Elements>
+            }
+          />
+        )}
+
         <Route
           exact
-          path="/process/payment"
-          element={
-            <Elements stripe={loadStripe(StripeApiKey)}>
-              <ProtectedRoute element={Payment} />{" "}
-            </Elements>
-          }
+          path="/admin/*"
+          element={<ProtectedRoute isAdmin={true} element={Dashboard} />}
         />
 
         <Route exact path="/reset/:token" element={<ResetPassword />}></Route>

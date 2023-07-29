@@ -7,9 +7,9 @@ const { isAuth, authorizeRoles } = require("../middleware/isAuth");
 router.post("/order/new", isAuth, OrderController.newOrder);
 
 router.get(
-  "/admin/order/:id",
+  "/order/:id",
   isAuth,
-  authorizeRoles("admin"),
+
   OrderController.getSingleOrder
 );
 

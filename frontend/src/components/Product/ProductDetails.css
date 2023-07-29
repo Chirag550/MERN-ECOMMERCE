@@ -4,8 +4,6 @@
   padding: 6vmax;
   max-width: 100%;
   display: flex;
-
-  box-sizing: border-box;
 }
 
 .ProductDetails > div {
@@ -47,7 +45,7 @@
   padding: 0.5vmax 0;
 }
 
-.DetailsBlock-2 > span {
+.DetailsBlock-2-span {
   margin: 1vmax;
   color: rgba(54, 54, 54, 0.582);
   font: 200 0.6vmax cursive;
@@ -155,7 +153,15 @@
   border: 1px solid rgba(56, 56, 56, 0.116);
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 1vmax;
+  width: 200px;
+  padding: 4vmax;
+  background-color: rgb(238, 230, 229);
+}
+.reviews {
+  display: flex;
+  overflow: auto;
 }
 .reviewCard > img {
   width: 5vmax;
@@ -164,9 +170,9 @@
   color: rgba(0, 0, 0, 0.836);
   font: 600 0.9vmax "Roboto";
 }
-.reviewCard > span {
-  color: rgba(0, 0, 0, 0.445);
-  font: 300 0.8vmax cursive;
+.reviewCard-span {
+  color: black;
+  font: 400 1vmax cursive;
 }
 .noReviews {
   font: 400 1.3vmax "Gill Sans";
@@ -176,6 +182,17 @@
 .reviews {
   display: flex;
   overflow: auto;
+}
+.submitDialog {
+  display: flex;
+  flex-direction: column;
+}
+.submitDialogTextArea {
+  border: 1px solid rgba(0, 0, 0, 0.082);
+  margin: 1vmax 0;
+  outline: none;
+  padding: 1rem;
+  font: 300 1rem "Roboto";
 }
 @media screen and (max-width: 600px) {
   .ProductDetails {
@@ -245,5 +262,12 @@
     padding: 1.5vmax;
     width: 20vmax;
     margin: 3vmax 0;
+  }
+
+  .reviewCard > p {
+    font: 600 3vw "Roboto";
+  }
+  .reviewcardComment {
+    font: 300 3vw cursive;
   }
 }

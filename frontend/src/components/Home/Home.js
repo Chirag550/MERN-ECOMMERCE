@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-import Product from "./ProductCard";
+
 import { getProduct } from "../../REDUX/actions/ProductAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { clearErrors } from "../../REDUX/actions/ProductAction";
+import ProductCard from "./ProductCard";
 
 const Home = () => {
   const alert = useAlert();
@@ -36,7 +37,10 @@ const Home = () => {
       <h2 className="homeHeading">Featured Products</h2>
 
       <div className="container" id="container">
-        {products && products.map((product) => <Product product={product} />)}
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
       </div>
     </>
   );

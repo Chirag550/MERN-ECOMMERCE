@@ -1,0 +1,84 @@
+.Dashboard-page {
+  margin: 0;
+  padding: 0;
+}
+.Dashboard {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  width: 100vw;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.dashboardcontainer {
+  border-left: 1px solid black;
+  background-color: white;
+}
+.sidebarcontainer {
+  background-color: rgb(9, 5, 31);
+  height: 100%;
+  min-height: 100vh;
+}
+.dashContainer > h1 {
+  text-align: center;
+  font: 300 2rem "Roboto";
+  width: 50%;
+  padding: 1.5rem;
+  margin: auto;
+  color: rgba(0, 0, 0, 0.733);
+}
+.dashboardsummary {
+  margin: 1rem 0;
+}
+.dashboardsummary > div {
+  display: flex;
+  background-color: white;
+  justify-content: center;
+}
+.dashboardsummary > div > p {
+  background-color: rgb(52, 52, 147);
+  color: white;
+  text-align: center;
+  font: 300 1.3rem "Roboto";
+  width: 100%;
+  padding: 1.5rem;
+  margin: 0 2rem;
+}
+.box2 > a {
+  color: rgb(0, 0, 0);
+  font: 300 2rem "Roboto";
+  text-align: center;
+  background-color: rgb(255, 233, 174);
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5vmax;
+  text-decoration: none;
+  padding: 1.5rem;
+  border-radius: 100%;
+  height: 10vmax;
+  width: 10vmax;
+}
+.box2 > a:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.box2 > a:first-child {
+  background-color: rgb(255, 110, 110);
+  color: rgb(255, 255, 255);
+}
+.box2 > a:last-child {
+  background-color: rgb(13, 115, 210);
+  color: rgb(255, 255, 255);
+}
+.linechart {
+  width: 80%;
+  margin: auto;
+}
+.dougnutchart {
+  width: 30vmax;
+  margin: auto;
+}
+@media screen and (max-width: 600px) {
+}
