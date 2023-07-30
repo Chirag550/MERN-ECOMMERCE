@@ -13,11 +13,12 @@
 .dashboardcontainer {
   border-left: 1px solid black;
   background-color: white;
+  overflow-y: auto;
 }
 .sidebarcontainer {
-  background-color: rgb(9, 5, 31);
-  height: 100%;
-  min-height: 100vh;
+  background-color: rgb(251, 250, 255);
+  height: 100vh;
+  min-height: 100%;
 }
 .dashContainer > h1 {
   text-align: center;
@@ -42,7 +43,7 @@
   font: 300 1.3rem "Roboto";
   width: 100%;
   padding: 1.5rem;
-  margin: 0 2rem;
+  margin: 1rem 2rem;
 }
 .box2 > a {
   color: rgb(0, 0, 0);
@@ -80,5 +81,87 @@
   width: 30vmax;
   margin: auto;
 }
+.MobileSidebarcontainer {
+  display: none;
+}
 @media screen and (max-width: 600px) {
+  .dashboardcontainer {
+    margin-top: 0vmax;
+  }
+  .logo {
+    font: 400 2vmax "Roboto";
+    text-align: center;
+  }
+  .sidebarcontainer {
+    /* height: 5vh;
+    max-height: 5vh; */
+    display: none;
+  }
+  .MobileSidebarcontainer {
+    background-color: rgb(39, 24, 21);
+
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    height: 8vh;
+  }
+  .SidebarCOntainer_Mobile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 4vmax;
+  }
+  .Dashboard {
+    grid-template-columns: 1fr;
+  }
+  .MobileSidebar {
+    position: fixed;
+
+    animation: slide-in linear 500ms;
+  }
+  .mobile {
+    background-color: rgb(9, 5, 31);
+    height: 100vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100%;
+  }
+  .circle {
+    margin-left: 14vmax;
+    cursor: pointer;
+  }
+  .btn {
+    display: flex;
+
+    border: none;
+    background-color: rgb(39, 24, 21);
+    color: white;
+    font: 400 2vmax "Roboto";
+    width: 100%;
+    height: 100%;
+    padding: 2vmax 5vmax;
+    transition: all 0.5s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+  }
+  .btn:hover {
+    background-color: rgb(52, 50, 50);
+    transform: scale(1.1);
+  }
+  @keyframes slide-in {
+    0% {
+      -webkit-transform: translateX(-200px);
+      transform: translateX(-200px);
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+  }
 }

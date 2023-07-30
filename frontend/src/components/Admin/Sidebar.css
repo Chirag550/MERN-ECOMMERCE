@@ -1,10 +1,10 @@
 .sidebar {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  min-height: 10vh;
+  height: 100vh;
 
+  min-height: 100%;
   background-color: rgb(9, 5, 31);
 }
 .image {
@@ -16,10 +16,10 @@
   text-decoration: none;
   transition: all 0.5s;
   width: 100%;
+  padding: 2rem 0rem;
   text-align: center;
   color: white;
-  padding: 2rem 0rem;
-  margin: auto;
+
   font: 200 1.4vmax "Roboto";
 }
 .sidebar a > svg {
@@ -31,4 +31,19 @@
 
 .MuiTypography-root {
   background-color: #fff !important;
+}
+@media screen and (max-width: 600px) {
+  .sidebar {
+    height: 10vh;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .sidebar a {
+    font: 300 1.5vmax "Roboto";
+  }
+
+  .image {
+    width: 50%;
+  }
 }

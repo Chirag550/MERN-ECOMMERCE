@@ -34,6 +34,16 @@ exports.getAllProducts = catchAsynError(async (req, res, next) => {
   });
 });
 
+//Admin ALl product list
+exports.getAdminProducts = catchAsynError(async (req, res, next) => {
+  const products = await Product.find();
+
+  res.status(200).json({
+    message: "get products sucessfully",
+    products,
+  });
+});
+
 exports.updateProduct = catchAsynError(async (req, res, next) => {
   let product = await Product.findById(req.params.productid);
 

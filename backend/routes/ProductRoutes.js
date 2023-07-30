@@ -12,9 +12,15 @@ router.post(
   productController.createProducts
 );
 router.get("/products", productController.getAllProducts);
+router.get(
+  "/admin/products",
+  isAuth,
+  authorizeRoles("admin"),
+  productController.getAdminProducts
+);
 
 router.put(
-  "/admin/products/:productid",
+  "/admin/product/:productid",
   isAuth,
   authorizeRoles("admin"),
   productController.updateProduct

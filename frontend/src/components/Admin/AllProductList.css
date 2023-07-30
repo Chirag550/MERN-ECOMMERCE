@@ -1,0 +1,67 @@
+.ProductPage > h1 {
+  text-align: center;
+  font: 300 2rem "Roboto";
+  width: 50%;
+  padding: 1.5rem;
+  margin: auto;
+  color: rgba(0, 0, 0, 0.733);
+}
+.productListContainer {
+  padding: 0rem 1rem;
+
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-left: 1px solid rgba(0, 0, 0, 0.158);
+  display: flex;
+  margin-top: 2vmax;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.productTable {
+  background-color: white;
+  border: none !important;
+}
+.productTable div {
+  font: 300 1vmax "Roboto";
+  color: rgba(0, 0, 0, 0.678);
+  border: none !important;
+}
+.MuiDataGrid-row {
+  border: none !important;
+}
+.MuiDataGrid-columnHeader {
+  background-color: rgb(241, 152, 137);
+  padding: 1vmax !important;
+}
+.MuiDataGrid-columnHeader > div {
+  color: rgb(255, 255, 255);
+  font: 500 1.1vmax "Roboto" !important;
+}
+.MuiDataGrid-iconSeparator {
+  display: none !important;
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.action a {
+  font: 300 1.5vmax "Roboto";
+  color: rgb(129, 129, 129);
+}
+.action Button {
+  font: 300 1.5vmax "Roboto";
+  color: rgb(129, 129, 129);
+}
+.action Button:hover,
+.action a:hover {
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  .productTable div {
+    font: 300 2vmax "Roboto";
+  }
+}
