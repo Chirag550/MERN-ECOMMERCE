@@ -14,6 +14,7 @@ import { Button, Typography } from "@mui/material";
 import MyOrder from "../Orders/MyOrder";
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
+import AllOrderList from "./AllOrderList";
 const Dashboard = () => {
   const [open, setisOpen] = useState(false);
   return (
@@ -69,6 +70,7 @@ const Dashboard = () => {
               <Route path="/products" element={<AllProductList />} />
               <Route path="/product" element={<CreateProduct />} />
               <Route path="/users" element={<Users />} />
+              <Route path="/orders" element={<AllOrderList />} />
               <Route path="/product/:id" element={<UpdateProduct />} />
             </Routes>
           </div>
