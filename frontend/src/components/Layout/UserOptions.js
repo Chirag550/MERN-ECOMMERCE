@@ -11,6 +11,7 @@ import "./useroptions.css";
 import { logout } from "../../REDUX/actions/userAction";
 import Backdrop from "@mui/material/Backdrop";
 import { MdShoppingCart } from "react-icons/md";
+import { withWidth } from "@material-ui/core";
 
 const UserOptions = ({ user }) => {
   const { cartitems } = useSelector((state) => state.cart);
@@ -80,7 +81,11 @@ const UserOptions = ({ user }) => {
         }}
         direction="down"
         icon={
-          <img className="speedDialIcon" src={user.avatar.url} alt="Profile" />
+          <img
+            style={{ height: "56px", width: "56px", borderRadius: "100%" }}
+            src={user.avatar.url}
+            alt="Profile"
+          />
         }
       >
         {options.map((option) => (

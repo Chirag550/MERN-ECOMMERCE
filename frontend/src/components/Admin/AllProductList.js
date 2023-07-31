@@ -6,24 +6,41 @@ import { DataGrid } from "@mui/x-data-grid";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import {
+  DeleteProducts,
   clearErrors,
   getAdminProducts,
 } from "../../REDUX/actions/ProductAction";
 import "./AllProductList.css";
 import { Button, Typography } from "@mui/material";
+import { DELETE_PRODUCT_RESET } from "../../REDUX/constants/productConstants";
+import { useNavigate } from "react-router-dom";
 
 const AllProductList = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const { loading, error, products } = useSelector((state) => state.products);
+  const { success, error: loadingerror } = useSelector(
+    (state) => state.DeleteProduct
+  );
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (error) {
       alert(error);
       dispatch(clearErrors);
     }
+    if (loadingerror) {
+      alert(loadingerror);
+      dispatch(clearErrors);
+    }
+
+    if (success) {
+      alert.success("Product has been Deleted Successfully");
+      navigate("/admin/products");
+      dispatch({ type: DELETE_PRODUCT_RESET });
+    }
     dispatch(getAdminProducts());
-  }, [dispatch]);
+  }, [dispatch, success, loadingerror, alert, error]);
   if (loading) return <Loader />;
 
   const columns = [
@@ -66,7 +83,11 @@ const AllProductList = () => {
                 <MdEdit />
               </Link>
 
-              <Button>
+              <Button
+                onClick={() => {
+                  dispatch(DeleteProducts(params.row["id"]));
+                }}
+              >
                 <MdDelete />
               </Button>
             </div>

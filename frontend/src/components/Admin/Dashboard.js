@@ -12,6 +12,8 @@ import Users from "./Users";
 import AllProductList from "./AllProductList";
 import { Button, Typography } from "@mui/material";
 import MyOrder from "../Orders/MyOrder";
+import CreateProduct from "./CreateProduct";
+import UpdateProduct from "./UpdateProduct";
 const Dashboard = () => {
   const [open, setisOpen] = useState(false);
   return (
@@ -24,16 +26,15 @@ const Dashboard = () => {
           <div className="MobileSidebarcontainer">
             <div className="SidebarCOntainer_Mobile">
               <div className="Mobile_sidebar">
-                <div>
-                  <button
-                    className="btn"
+                {!open && (
+                  <div
                     onClick={() => {
                       setisOpen(!open);
                     }}
                   >
-                    MORE ADMIN OPTIONS
-                  </button>
-                </div>
+                    <button className="btn">MORE ADMIN OPTIONS</button>
+                  </div>
+                )}
 
                 {/* <HiMenu
                   fontSize={40}
@@ -65,8 +66,10 @@ const Dashboard = () => {
             <Routes>
               <Route path="/" element={<DashboardPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/product" element={<AllProductList />} />
+              <Route path="/products" element={<AllProductList />} />
+              <Route path="/product" element={<CreateProduct />} />
               <Route path="/users" element={<Users />} />
+              <Route path="/product/:id" element={<UpdateProduct />} />
             </Routes>
           </div>
         </div>
