@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { OrderAdmin, clearErrors } from "../../REDUX/actions/OrderAction";
 import { useAlert } from "react-alert";
+import "./AllOrderList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { DeleteOrder } from "../../REDUX/actions/OrderAction";
@@ -10,10 +11,12 @@ import { MdDelete } from "react-icons/md";
 import { Typography } from "@material-ui/core";
 import { MdEdit } from "react-icons/md";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const AllOrderList = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
+  const navigate = useNavigate();
   const { orders, error, loading } = useSelector(
     (state) => state.AdminAllOrder
   );
@@ -27,12 +30,11 @@ const AllOrderList = () => {
       field: "status",
       headerName: "Status",
       minWidth: 150,
-
       flex: 0.5,
       cellClassName: (params) => {
-        if (params.value === "processing") {
-          return "redColor";
-        } else return "greenColor";
+        return params.row["status"] === "processing"
+          ? "redColor"
+          : "greenColor";
       },
     },
     {
@@ -101,10 +103,11 @@ const AllOrderList = () => {
     }
     if (isDeleted) {
       alert.success("Order Deleted Successfully");
+      navigate("/admin/orders");
       dispatch({ type: DELETE_ORDER_RESET });
     }
     dispatch(OrderAdmin());
-  }, [dispatch, loading, alert, error]);
+  }, [dispatch, loading, alert, error, isDeleted, deletedError]);
   return (
     <>
       <div className="dashContainer">
@@ -115,7 +118,6 @@ const AllOrderList = () => {
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
-            className="productTable"
             autoHeight
           />
         </div>

@@ -73,7 +73,7 @@ export const DeleteOrder = (id) => async (dispatch) => {
   }
 };
 
-export const UpdateOrder = (id, order) => async (dispatch) => {
+export const Updateorder = (id, order) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_ORDER_REQUEST });
     const config = { headers: { "Content-Type": "application/json" } };

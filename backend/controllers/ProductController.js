@@ -109,7 +109,7 @@ exports.updateProduct = catchAsynError(async (req, res, next) => {
 });
 
 exports.deleteProduct = catchAsynError(async (req, res, next) => {
-  const product1 = await Product.find(req.params.productid);
+  const product1 = await Product.findById(req.params.productid);
 
   if (!product1) {
     return next(new Errorhandler("Product not found ", 404));

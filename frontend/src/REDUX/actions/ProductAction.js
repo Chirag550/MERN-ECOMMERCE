@@ -96,9 +96,9 @@ export const createProducts = (productData) => async (dispatch) => {
 export const DeleteProducts = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
-    const config = { headers: { "Content-Type": "application/json" } };
+    console.log(id);
 
-    const { data } = await axios.delete(`/api/v1/admin/products/${id}`, config);
+    const { data } = await axios.delete(`/api/v1/admin/product/${id}`);
 
     dispatch({ type: DELETE_PRODUCT_SUCCESS, payload: data });
   } catch (error) {

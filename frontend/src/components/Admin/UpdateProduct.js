@@ -20,6 +20,15 @@ import { UPDATE_PRODUCT_RESET } from "../../REDUX/constants/productConstants";
 const UpdateProduct = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [Stock, setStock] = useState(0);
+  const [images, setImages] = useState([]);
+  const [oldimages, setoldImages] = useState([]);
+  const [imagesPreview, setImagesPreview] = useState([]);
   const { id } = useParams();
   const categories = [
     "Laptop",
@@ -44,6 +53,13 @@ const UpdateProduct = () => {
     }
     if (product && product._id !== id) {
       dispatch(getProductDetails(id));
+    } else {
+      setName(product.name);
+      setDescription(product.description);
+      setPrice(product.price);
+      setCategory(product.category);
+      setStock(product.Stock);
+      setoldImages(product.images);
     }
 
     if (updatedError) {
@@ -56,15 +72,6 @@ const UpdateProduct = () => {
       navigate("/admin/dashboard");
     }
   }, [dispatch, product, id, error, loading, updatedError, isUpdated]);
-  const navigate = useNavigate();
-  const [name, setName] = useState(product.name);
-  const [price, setPrice] = useState(product.price);
-  const [description, setDescription] = useState(product.description);
-  const [category, setCategory] = useState(product.category);
-  const [Stock, setStock] = useState(product.Stock);
-  const [images, setImages] = useState([]);
-  const [oldimages, setoldImages] = useState(product.images);
-  const [imagesPreview, setImagesPreview] = useState([]);
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();

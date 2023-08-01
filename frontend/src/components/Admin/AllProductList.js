@@ -26,11 +26,11 @@ const AllProductList = () => {
 
   useEffect(() => {
     if (error) {
-      alert(error);
+      alert.error(error);
       dispatch(clearErrors);
     }
     if (loadingerror) {
-      alert(loadingerror);
+      alert.error(loadingerror);
       dispatch(clearErrors);
     }
 

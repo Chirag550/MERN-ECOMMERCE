@@ -6,10 +6,12 @@ import { Line, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from "chart.js";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminProducts } from "../../REDUX/actions/ProductAction";
+import { OrderAdmin } from "../../REDUX/actions/OrderAction";
 
 ChartJS.register(...registerables);
 const DashboardPage = () => {
   const { products } = useSelector((state) => state.products);
+  const { orders } = useSelector((state) => state.AdminAllOrder);
   const dispatch = useDispatch();
 
   let outofStock = 0;
@@ -21,6 +23,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     dispatch(getAdminProducts());
+    dispatch(OrderAdmin());
   }, [dispatch]);
   const lineState = {
     labels: ["initial Amount", "Amount Earned"],
@@ -54,13 +57,13 @@ const DashboardPage = () => {
             </p>
           </div>
           <div className="box2">
-            <Link to="/admin/product">
-              <p>Product</p>
+            <Link to="/admin/products">
+              <p>Products</p>
               <p>{products.length}</p>
             </Link>
             <Link to="/admin/orders">
               <p>Orders</p>
-              <p>50</p>
+              <p>{orders && orders.length}</p>
             </Link>
             <Link to="/admin/users">
               <p>Users</p>

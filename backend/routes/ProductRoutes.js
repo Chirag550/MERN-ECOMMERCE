@@ -27,7 +27,7 @@ router.put(
 );
 
 router.delete(
-  "/admin/products/:productid",
+  "/admin/product/:productid",
   isAuth,
   authorizeRoles("admin"),
   productController.deleteProduct

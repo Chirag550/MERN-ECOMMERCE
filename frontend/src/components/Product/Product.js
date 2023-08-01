@@ -25,7 +25,7 @@ const Product = () => {
   const dispatch = useDispatch();
   const routepath = useLocation();
   const [currentpage, setcurrentpage] = useState(1);
-  const [price, setPrice] = useState([0, 25000]);
+  const [price, setPrice] = useState([0, 2500000]);
   const [category, setCategory] = useState("");
   const [ratings, setratings] = useState(0);
   const Alert = useAlert();

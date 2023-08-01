@@ -1,0 +1,11 @@
+.MuiDataGrid-columnHeader {
+  background-color: rgb(241, 152, 137);
+  padding: 1vmax !important;
+}
+.MuiDataGrid-columnHeader > div {
+  color: rgb(255, 255, 255);
+  font: 500 1.1vmax "Roboto" !important;
+}
+.MuiDataGrid-iconSeparator {
+  display: none !important;
+}

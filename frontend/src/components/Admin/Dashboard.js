@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { Route, Routes } from "react-router-dom";
 import "./Dashboard.css";
-import { HiMenu } from "react-icons/hi";
 
 import { AiFillCloseCircle } from "react-icons/ai";
 
 import DashboardPage from "./DashboardPage";
-import SwitchLeftIcon from "@mui/icons-material/SwitchLeft";
-import Users from "./Users";
+
 import AllProductList from "./AllProductList";
-import { Button, Typography } from "@mui/material";
-import MyOrder from "../Orders/MyOrder";
+
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
 import AllOrderList from "./AllOrderList";
+import UpdateOrder from "./UpdateOrder";
+import ALLUsersList from "./ALLUsersList";
 const Dashboard = () => {
   const [open, setisOpen] = useState(false);
   return (
@@ -69,8 +68,9 @@ const Dashboard = () => {
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/products" element={<AllProductList />} />
               <Route path="/product" element={<CreateProduct />} />
-              <Route path="/users" element={<Users />} />
+              <Route path="/users" element={<ALLUsersList />} />
               <Route path="/orders" element={<AllOrderList />} />
+              <Route path="/order/:id" element={<UpdateOrder />} />
               <Route path="/product/:id" element={<UpdateProduct />} />
             </Routes>
           </div>
