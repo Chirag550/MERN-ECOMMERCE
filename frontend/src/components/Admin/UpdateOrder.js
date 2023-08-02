@@ -7,6 +7,7 @@ import {
   Updateorder,
   clearErrors,
 } from "../../REDUX/actions/OrderAction";
+import MetaData from "../Layout/MetaData";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Layout/Loader/Loader";
 import { useAlert } from "react-alert";
@@ -14,6 +15,7 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { Button } from "@material-ui/core";
 import { UPDATE_ORDER_RESET } from "../../REDUX/constants/orderConstant";
 import "./UpdateOrder.css";
+import { load } from "webfontloader";
 
 const UpdateOrder = () => {
   const { order, error, loading } = useSelector((state) => state.orderDetail);
@@ -51,9 +53,10 @@ const UpdateOrder = () => {
 
     dispatch(OrderDetail(id));
   }, [dispatch, alert, error, id, isUpdated, updateError]);
-
+  if (loading) return <Loader />;
   return (
     <>
+      <MetaData title="ADMIN- Update Order" />
       <div className="newProductContainer">
         <div
           className="confirmOrderPage"

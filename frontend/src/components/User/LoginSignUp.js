@@ -7,6 +7,7 @@ import { MdFace, MdLockOpen, MdMailOutline } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, login, register } from "../../REDUX/actions/userAction";
 import { useAlert } from "react-alert";
+import MetaData from "../Layout/MetaData";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const LoginSignUp = () => {
@@ -102,6 +103,7 @@ const LoginSignUp = () => {
   if (loading) return <Loader />;
   return (
     <>
+      <MetaData title="ONLINE SHOP -Login/Register" />
       <div className="LoginSignUpContainer">
         <div className="LoginSignUpBox">
           <div>

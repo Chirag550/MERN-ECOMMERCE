@@ -16,6 +16,7 @@ import "./Payment.css";
 import { MdCreditCard } from "react-icons/md";
 import { MdVpnKey } from "react-icons/md";
 import { MdEvent } from "react-icons/md";
+import MetaData from "../Layout/MetaData";
 import { useNavigate } from "react-router-dom";
 import { NewOrder, clearErrors } from "../../REDUX/actions/OrderAction";
 
@@ -112,6 +113,7 @@ const Payment = () => {
   }, [error, dispatch, alert]);
   return (
     <>
+      <MetaData title="ONLINE SHOP-Payment" />
       <CheckOutSteps activeStep={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>

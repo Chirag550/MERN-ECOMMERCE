@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./UpdateProfile.css";
 import Loader from "../Layout/Loader/Loader";
+import MetaData from "../Layout/MetaData";
 
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors } from "../../REDUX/actions/userAction";
@@ -36,6 +37,7 @@ const ForgotPassword = () => {
 
   return (
     <>
+      <MetaData title="Forgot Password" />
       <div className="UpdateContainer">
         {loading ? (
           <Loader />

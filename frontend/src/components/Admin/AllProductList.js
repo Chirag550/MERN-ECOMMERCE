@@ -14,6 +14,7 @@ import "./AllProductList.css";
 import { Button, Typography } from "@mui/material";
 import { DELETE_PRODUCT_RESET } from "../../REDUX/constants/productConstants";
 import { useNavigate } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 const AllProductList = () => {
   const dispatch = useDispatch();
@@ -78,6 +79,7 @@ const AllProductList = () => {
       renderCell: (params) => {
         return (
           <>
+            <MetaData title="ADMIN- All Products" />
             <div className="action">
               <Link to={`/admin/product/${params.row["id"]}`}>
                 <MdEdit />

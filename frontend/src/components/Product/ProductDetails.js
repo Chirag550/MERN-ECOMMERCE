@@ -8,6 +8,7 @@ import {
   getProductDetails,
 } from "../../REDUX/actions/ProductAction";
 import { useParams } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 import ReviewCard from "./ReviewCard";
 import Loader from "../Layout/Loader/Loader";
@@ -108,6 +109,7 @@ const ProductDetails = () => {
   if (loading) return <Loader />;
   return (
     <>
+      <MetaData title={`${product.name} -- ONLINE SHOP`} />
       <div className="ProductDetails">
         <div>
           <Carousel className="carousel">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./UpdateProfile.css";
 import Loader from "../Layout/Loader/Loader";
-
+import MetaData from "../Layout/MetaData";
 import { MdFace, MdMailOutline } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -69,6 +69,7 @@ const UpdateProfile = () => {
 
   return (
     <>
+      <MetaData title="Update Profile" />
       <div className="UpdateContainer">
         {loading ? (
           <Loader />

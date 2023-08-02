@@ -12,6 +12,7 @@ import { Country, State } from "country-state-city";
 import CheckOutSteps from "./CheckOutSteps";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
+import MetaData from "../Layout/MetaData";
 
 const Shipping = () => {
   const alert = useAlert();
@@ -46,6 +47,7 @@ const Shipping = () => {
   };
   return (
     <>
+      <MetaData title="Shipping Info" />
       <CheckOutSteps activeStep={0} />
       <div className="shippingContainer">
         {

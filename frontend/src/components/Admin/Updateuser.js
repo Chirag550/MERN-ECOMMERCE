@@ -7,6 +7,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import { updateUser } from "../../REDUX/actions/userAction";
 import { Button } from "@mui/material";
+import MetaData from "../Layout/MetaData";
 import { UPDATE_USER_RESET } from "../../REDUX/constants/userConstants";
 import { useNavigate } from "react-router-dom";
 import { clearErrors } from "../../REDUX/actions/userAction";
@@ -59,6 +60,7 @@ const Updateuser = () => {
   };
   return (
     <>
+      <MetaData title="ADMIN- Update User" />
       <div className="newProductContainer">
         <form className="createProductForm" onSubmit={updateUserSubmitHandler}>
           <h1>Update User</h1>

@@ -15,6 +15,7 @@ import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { Button } from "@material-ui/core";
 import "./CreateProduct.css";
+import MetaData from "../Layout/MetaData";
 import { UPDATE_PRODUCT_RESET } from "../../REDUX/constants/productConstants";
 
 const UpdateProduct = () => {
@@ -113,6 +114,7 @@ const UpdateProduct = () => {
   };
   return (
     <>
+      <MetaData title="ADMIN- Update Product" />
       <div className="newProductContainer" style={{ zIndex: "9" }}>
         <form
           className="createProductForm"

@@ -32,6 +32,8 @@ import Success from "./components/Cart/Success";
 import MyOrder from "./components/Orders/MyOrder";
 import OrderDetails from "./components/Orders/OrderDetails";
 import Dashboard from "./components/Admin/Dashboard";
+import Contact from "./components/Contact/Contact";
+import About from "./components/About/About";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -136,7 +138,8 @@ function App() {
         />
 
         <Route exact path="/reset/:token" element={<ResetPassword />}></Route>
-
+        <Route exact path="/contact" Component={Contact}></Route>
+        <Route exact path="/about" Component={About}></Route>
         {/* <Route exact path="/nav" element={<Navbar />}></Route> */}
       </Routes>
       <Footer />

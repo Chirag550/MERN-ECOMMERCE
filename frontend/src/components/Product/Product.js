@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import { Typography } from "@mui/material";
 import Slider from "@mui/material-next/Slider";
 import { useAlert } from "react-alert";
+import MetaData from "../Layout/MetaData";
 import { clearErrors } from "../../REDUX/actions/ProductAction";
 const categories = [
   "Laptop",
@@ -62,6 +63,7 @@ const Product = () => {
   if (loading) return <Loader />;
   return (
     <>
+      <MetaData title="PRODUCTS -- ONLINE SHOP" />
       <h2 className="productheading">Products</h2>
       <div className="products">
         {products &&

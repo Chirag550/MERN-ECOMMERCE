@@ -7,12 +7,14 @@ import { Chart as ChartJS, registerables } from "chart.js";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminProducts } from "../../REDUX/actions/ProductAction";
 import { OrderAdmin } from "../../REDUX/actions/OrderAction";
-
+import { getAllUsers } from "../../REDUX/actions/userAction";
+import MetaData from "../Layout/MetaData";
 ChartJS.register(...registerables);
 const DashboardPage = () => {
   const { products } = useSelector((state) => state.products);
-  const { orders } = useSelector((state) => state.AdminAllOrder);
+  const { orders, totalamount } = useSelector((state) => state.AdminAllOrder);
   const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.allUsers);
 
   let outofStock = 0;
   products?.forEach((element) => {
@@ -24,6 +26,7 @@ const DashboardPage = () => {
   useEffect(() => {
     dispatch(getAdminProducts());
     dispatch(OrderAdmin());
+    dispatch(getAllUsers());
   }, [dispatch]);
   const lineState = {
     labels: ["initial Amount", "Amount Earned"],
@@ -32,7 +35,7 @@ const DashboardPage = () => {
         label: "Total Amount",
         backgroundColor: ["tomato"],
         hoverbackgroundColor: ["rgb(197,72,49)"],
-        data: [0, 4000],
+        data: [0, totalamount],
       },
     ],
   };
@@ -48,12 +51,13 @@ const DashboardPage = () => {
   };
   return (
     <>
+      <MetaData title="ADMIN- DashBoard" />
       <div className="dashContainer">
         <Typography component="h1">Dashboard</Typography>
         <div className="dashboardsummary">
           <div>
             <p>
-              Total Amount <br></br> $2000
+              Total Amount <br></br> ${totalamount}
             </p>
           </div>
           <div className="box2">
@@ -67,7 +71,7 @@ const DashboardPage = () => {
             </Link>
             <Link to="/admin/users">
               <p>Users</p>
-              <p>50</p>
+              <p>{users.length}</p>
             </Link>
           </div>
         </div>

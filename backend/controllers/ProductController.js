@@ -207,15 +207,19 @@ exports.deleteReviews = catchAsynError(async (req, res, next) => {
   reviews.forEach((rev) => {
     avg += rev.rating;
   });
-  const ratings = avg / reviews.length;
+  let ratings = 0;
+
+  if (reviews.length === 0) {
+    ratings = 0;
+  } else {
+    ratings = avg / reviews.length;
+  }
 
   const numofReviews = reviews.length;
 
   await Product.findByIdAndUpdate(
     req.query.productid,
-    reviews,
-    ratings,
-    numofReviews,
+    { reviews, ratings, numofReviews },
     {
       new: true,
       runValidators: true,

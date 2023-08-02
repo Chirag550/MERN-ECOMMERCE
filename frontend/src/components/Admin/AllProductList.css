@@ -25,7 +25,7 @@
 }
 .productTable div {
   font: 300 1vmax "Roboto";
-  color: rgba(0, 0, 0, 0.678);
+
   border: none !important;
 }
 .MuiDataGrid-row {
@@ -62,6 +62,14 @@
 
 @media screen and (max-width: 600px) {
   .productTable div {
-    font: 300 2vmax "Roboto";
+    font: 400 2.3vmax "Roboto";
+  }
+  .action a {
+    font: 300 3vmax "Roboto";
+    color: rgb(129, 129, 129);
+  }
+  .action Button {
+    font: 300 3vmax "Roboto";
+    color: rgb(129, 129, 129);
   }
 }

@@ -42,12 +42,12 @@ router.put(
 );
 
 router.get(
-  "/reviews ",
+  "/reviews",
 
   productController.getProductReviews
 );
 router.delete(
-  "/reviews ",
+  "/reviews",
   isAuth,
 
   productController.deleteReviews

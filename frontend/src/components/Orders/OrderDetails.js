@@ -6,7 +6,7 @@ import { useAlert } from "react-alert";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./OrderDetails.css";
-
+import MetaData from "../Layout/MetaData";
 const OrderDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const OrderDetails = () => {
   }, []);
   return (
     <>
+      <MetaData title="Order Details" />
       <div className="orderDetailsPage">
         <div className="orderDetailsContainer">
           <Typography component="h1">Order #{order && order._id}</Typography>

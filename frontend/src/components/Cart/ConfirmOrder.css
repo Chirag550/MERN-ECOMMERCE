@@ -4,7 +4,7 @@
 .confirmOrderPage {
   height: 100vh;
   display: grid;
-  grid-template-columns: 6fr 3fr;
+  grid-template-columns: 7fr 3fr;
   background-color: white;
 }
 .confirmOrderPage > div:last-child {
@@ -21,7 +21,7 @@
 }
 
 .confirmShippingAreaBox,
-confirmCartItemsContainer {
+.confirmCartItemsContainer {
   margin: 2vmax;
 }
 .confirmShippingAreaBox > div {
@@ -45,7 +45,8 @@ confirmCartItemsContainer {
 }
 
 .confirmCartItemsContainer {
-  padding: 5vmax;
+  padding: 4vmax;
+
   padding-top: 2vmax;
 }
 .confirmcartitemsbox {
@@ -66,7 +67,7 @@ confirmCartItemsContainer {
 .confirmcartitemsbox > div > a {
   color: #575757;
   margin: 0 2vmax;
-  width: 60%;
+  width: 50%;
   text-decoration: none;
 }
 .orderSummary {
@@ -119,6 +120,10 @@ confirmCartItemsContainer {
 }
 .orderSummary > button:hover {
   background-color: rgb(198, 42, 15);
+}
+.confirmcartitemsbox > div > span {
+  font: 100 1vmax "Roboto";
+  color: #5e5e5e;
 }
 
 @media screen and (max-width: 600px) {

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { ADDTOCART, REMOVECART } from "../../REDUX/actions/cartAction";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Typography } from "@mui/material";
+import MetaData from "../Layout/MetaData";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Cart = () => {
@@ -41,6 +42,7 @@ const Cart = () => {
   }, [routepath]);
   return (
     <>
+      <MetaData title="Shopping Cart" />
       {cartitems.length === 0 ? (
         <div className="emptyCart">
           <RemoveShoppingCartIcon />

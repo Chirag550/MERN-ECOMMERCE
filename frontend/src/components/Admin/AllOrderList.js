@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { DeleteOrder } from "../../REDUX/actions/OrderAction";
 import { DELETE_ORDER_RESET } from "../../REDUX/constants/orderConstant";
 import { MdDelete } from "react-icons/md";
+import MetaData from "../Layout/MetaData";
 import { Typography } from "@material-ui/core";
 import { MdEdit } from "react-icons/md";
 import { Button } from "@mui/material";
@@ -62,6 +63,7 @@ const AllOrderList = () => {
       renderCell: (params) => {
         return (
           <>
+            <MetaData title="ADMIN- All Orders" />
             <div className="action">
               <Link to={`/admin/order/${params.row["id"]}`}>
                 <MdEdit />
@@ -117,6 +119,7 @@ const AllOrderList = () => {
             rows={rows}
             columns={columns}
             pageSize={10}
+            className="productTable"
             disableSelectionOnClick
             autoHeight
           />

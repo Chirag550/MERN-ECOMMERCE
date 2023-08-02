@@ -3,10 +3,12 @@ import "./Success.css";
 import { MdCheckCircle } from "react-icons/md";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 const Success = () => {
   return (
     <>
+      <MetaData title="Success" />
       <div className="OrderSuccess">
         <MdCheckCircle />
 

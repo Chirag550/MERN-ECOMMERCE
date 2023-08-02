@@ -1,5 +1,5 @@
 .newProductContainer {
-  width: 80%;
+  width: 100%;
   box-sizing: border-box;
   background-color: rgb(221, 221, 221);
   border-left: 1px solid rgba(0, 0, 0, 0.158);
@@ -105,15 +105,18 @@
 @media screen and (max-width: 600px) {
   .newProductContainer {
     background-color: rgb(255, 255, 255);
+    height: 100vh;
   }
   .createProductForm {
     padding: 5vmax;
+    width: 50vw;
   }
 
   .createProductForm > div > input,
   .createProductForm > div > select,
   .createProductForm > div > textarea {
     padding: 2.5vmax 5vmax;
+
     font: 300 1.7vmax cursive;
   }
 
@@ -133,6 +136,7 @@
 
   #createProductBtn {
     font: 300 1.9vmax "Roboto";
+    margin-left: 1.4vmax;
     padding: 1.8vmax;
   }
 }

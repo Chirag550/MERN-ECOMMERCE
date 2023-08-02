@@ -9,6 +9,7 @@ import {
   deleteUser,
   getAllUsers,
 } from "../../REDUX/actions/userAction";
+import MetaData from "../Layout/MetaData";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -107,6 +108,7 @@ const ALLUsersList = () => {
   return (
     <>
       {" "}
+      <MetaData title="ADMIN- All Users" />
       <div className="dashContainer">
         <Typography component="h1">All Users</Typography>
         <div className="productListContainer" style={{ zIndex: "3" }}>

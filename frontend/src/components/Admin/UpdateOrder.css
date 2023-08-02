@@ -3,7 +3,13 @@
   padding: 3vmax;
   background-color: white;
 }
+.confirmOrderPage {
+  height: 100vh;
+  display: grid;
 
+  grid-template-columns: 6fr 4fr;
+  background-color: white;
+}
 .newProductContainer {
   width: 100%;
   box-sizing: border-box;
@@ -12,18 +18,17 @@
   display: flex;
 
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
-.confirmShippingArea {
+.confirmshippingArea {
   padding: 5vmax;
   padding-bottom: 2%;
 }
 
-.confirmShippingArea > p {
+.confirmshippingArea > p {
   font: 500 2vmax "Roboto";
 }
-.confirmShippingAreaBox,
-.confirmCartItemsContainer {
+.confirmShippingAreaBox {
   margin: 2vmax;
 }
 .confirmShippingAreaBox > div {
@@ -46,7 +51,7 @@
 
 .confirmCartItemsContainer {
   padding: 5vmax;
-  padding-top: 2vmax;
+  padding-top: 1vmax;
 }
 .confirmcartitemsbox {
   max-height: 20vmax;
@@ -91,14 +96,6 @@
   font-size: 1.6vmax;
   color: rgba(0, 0, 0, 0.623);
 }
-.confirmOrderPage {
-  height: 100vh;
-  display: grid;
-  padding: 2vmax;
-
-  grid-template-columns: 6fr 4fr;
-  background-color: white;
-}
 
 @media screen and (max-width: 600px) {
   .newProductContainer {
@@ -125,10 +122,10 @@
     border-left: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.247);
   }
-  .confirmShippingArea > p {
+  .confirmshippingArea > p {
     font: 400 6vw "Roboto";
   }
-  .confirmShippingArea > div {
+  .confirmshippingArea > div {
     display: flex;
     flex-direction: column;
     margin: 6vw 0;
@@ -143,11 +140,11 @@
     font: 400 6vw "Roboto";
   }
   .confirmcartitemsbox {
-    max-height: 50vw;
+    max-height: 50vh;
   }
 
   .confirmcartitemsbox > div {
-    font: 400 4vw "Roboto";
+    font: 400 3vw "Roboto";
     margin: 4vw 0;
   }
   .confirmcartitemsbox > div > img {
@@ -158,7 +155,7 @@
     width: 30%;
   }
   .confirmcartitemsbox > div > span {
-    font: 100 4vw "Roboto";
+    font: 100 3vw "Roboto";
   }
   .orderSummary {
     padding: 12vmax;

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Loader from "../Layout/Loader/Loader";
 import { useEffect } from "react";
 import "./Profile.css";
+import MetaData from "../Layout/MetaData";
 import { useLocation } from "react-router-dom";
 
 const Profile = () => {
@@ -26,6 +27,7 @@ const Profile = () => {
 
   return (
     <>
+      <MetaData title="My Profile" />
       <div className="profileContainer">
         <div>
           <h1>My Profile</h1>

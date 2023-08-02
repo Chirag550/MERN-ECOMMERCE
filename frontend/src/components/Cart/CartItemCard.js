@@ -6,10 +6,7 @@ const CartItemCard = ({ item, deleteCartItem }) => {
   return (
     <>
       <div className="cartitemcard">
-        <img
-          src="https://purepng.com/public/uploads/large/purepng.com-men-t-shirtclothingmen-t-shirtfashion-dress-shirt-cloth-tshirt-631522326839zoswy.png"
-          alt="Product"
-        />
+        <img src={item.image} alt="Product" />
         <div>
           <Link to={`/product/${item.product}`}>{item.name}</Link>
           <span>{`Price: ${item.price}`}</span>

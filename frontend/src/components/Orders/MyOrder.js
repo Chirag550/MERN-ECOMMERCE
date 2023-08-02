@@ -3,11 +3,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Layout/Loader/Loader";
 import "./MyOrder.css";
+import MetaData from "../Layout/MetaData";
 import { Typography } from "@mui/material";
 import { useAlert } from "react-alert";
 import { MyOrders, clearErrors } from "../../REDUX/actions/OrderAction";
 import { Link } from "react-router-dom";
 import { MdLaunch } from "react-icons/md";
+
 const MyOrder = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -76,6 +78,7 @@ const MyOrder = () => {
   if (loading) return <Loader />;
   return (
     <>
+      <MetaData title="My Orders" />
       <div className="orderPage">
         <DataGrid
           rows={rows}

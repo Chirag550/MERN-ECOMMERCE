@@ -7,6 +7,7 @@ import Loader from "../Layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { clearErrors } from "../../REDUX/actions/ProductAction";
 import ProductCard from "./ProductCard";
+import MetaData from "../Layout/MetaData";
 
 const Home = () => {
   const alert = useAlert();
@@ -26,6 +27,7 @@ const Home = () => {
   if (loading) return <Loader />;
   return (
     <>
+      <MetaData title={"Ecommerce"} />
       <div className="banner">
         <p>Welcome to Online Shop</p>
         <h1>FIND AMAZING PRODUCTS BELOW</h1>

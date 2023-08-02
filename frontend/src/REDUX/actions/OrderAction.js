@@ -54,7 +54,7 @@ export const OrderAdmin = () => async (dispatch) => {
     dispatch({ type: ALL_ORDER_REQUEST });
 
     const { data } = await axios.get("/api/v1/admin/orders");
-    console.log(data);
+
     dispatch({ type: ALL_ORDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ALL_ORDER_FAIL, payload: error.response.data.message });

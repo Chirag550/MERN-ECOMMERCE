@@ -3,6 +3,7 @@ import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import { MdAccountCircle } from "react-icons/md";
 import { MdSearch } from "react-icons/md";
+import "./Footer.css";
 import { MdAddShoppingCart } from "react-icons/md";
 import logo from "../assets/logo (2).png";
 
@@ -10,7 +11,7 @@ const Header = () => {
   return (
     <ReactNavbar
       logo={logo}
-      logoWidth="25vmax"
+      logoWidth="15vmax"
       burgerColor="gray"
       navColor1="white"
       logoHoverSize="0px"
@@ -19,20 +20,20 @@ const Header = () => {
       SearchIconElement={MdSearch}
       searchIconColor="rgba(35 , 35 ,35 , 0.8)"
       searchIconColorHover="#eb4034"
-      searchIconMargin="1vmax"
+      searchIconMargin="0.6vmax"
       cartIcon={true}
       CartIconElement={MdAddShoppingCart}
       cartIconColor="rgba(35 , 35 ,35 , 0.8)"
       cartIconColorHover="eb4034"
-      cartIconMargin="1vmax"
+      cartIconMargin="0.6vmax"
       profileIcon={true}
       ProfileIconElement={MdAccountCircle}
       profileIconColor="rgba(35 , 35 ,35 , 0.8)"
       profileIconUrl="/login"
       profileIconColorHover="eb4034"
-      profileIconMargin="1vmax"
+      profileIconMargin="0.6vmax"
       link1Text="Home"
-      link2Text="Product"
+      link2Text="Products"
       link3Text="Contact"
       link4Text="About"
       link1Url="/"
@@ -48,7 +49,7 @@ const Header = () => {
       nav1justifyContent="flex-end"
       nav2justifyContent="flex-end"
       nav3justifyContent="flex-start"
-      link1Margin="1vmax"
+      link1Margin="0.8vmax"
       link2Margin="0vmax"
       link3Margin="1vmax"
       link4Margin="0vmax"

@@ -71,3 +71,16 @@
 .rightFooter > a:hover {
   color: #eb4034;
 }
+
+@media screen and (max-width: 600px) {
+  .logoReactNavbar {
+    width: 200% !important;
+    margin: -6vmax;
+  }
+  .linksReactNavbar {
+    font-size: 3vmax !important;
+  }
+  .nav4 > a > svg {
+    font-size: 35px;
+  }
+}

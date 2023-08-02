@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./ConfirmOrder.css";
 import { useNavigate } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 const ConfirmOrder = () => {
   const { cartitems, shippingInfo } = useSelector((state) => state.cart);
@@ -42,6 +43,7 @@ const ConfirmOrder = () => {
   };
   return (
     <>
+      <MetaData title="Confirm Order" />
       <CheckOutSteps activeStep={1} />
       <div className="confirmOrderPage">
         <div>
@@ -71,8 +73,8 @@ const ConfirmOrder = () => {
                     <img src={item.image} alt="item" />
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                     <span>
-                      {item.quantity}x ${item.price}=
-                      <b>${item.price * item.quantity}</b>
+                      {item.quantity}x ${item.price}= $
+                      {item.price * item.quantity}
                     </span>
                   </div>
                 ))}
