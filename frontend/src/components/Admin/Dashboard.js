@@ -14,6 +14,7 @@ import UpdateProduct from "./UpdateProduct";
 import AllOrderList from "./AllOrderList";
 import UpdateOrder from "./UpdateOrder";
 import ALLUsersList from "./ALLUsersList";
+import Updateuser from "./Updateuser";
 const Dashboard = () => {
   const [open, setisOpen] = useState(false);
   return (
@@ -72,6 +73,7 @@ const Dashboard = () => {
               <Route path="/orders" element={<AllOrderList />} />
               <Route path="/order/:id" element={<UpdateOrder />} />
               <Route path="/product/:id" element={<UpdateProduct />} />
+              <Route path="/user/:id" element={<Updateuser />} />
             </Routes>
           </div>
         </div>

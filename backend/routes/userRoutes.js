@@ -15,18 +15,18 @@ router.put("/password/update", isAuth, usercontroller.updatePassword);
 router.put("/password/update", isAuth, usercontroller.updatePassword);
 router.put("/me/update", isAuth, usercontroller.updateProfile);
 router.get(
-  "admin/users",
+  "/admin/users",
   isAuth,
   authorizeRoles("admin"),
   usercontroller.getAllUser
 );
 router.get(
-  "admin/user/:id",
+  "/admin/user/:id",
   isAuth,
   authorizeRoles("admin"),
   usercontroller.getSingleUser
 );
-router.put("admin/user/:id", usercontroller.updateRole);
+router.put("/admin/user/:id", usercontroller.updateRole);
 
-router.delete("admin/user/:id", usercontroller.deleteUser);
+router.delete("/admin/user/:id", usercontroller.deleteUser);
 module.exports = router;

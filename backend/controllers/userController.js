@@ -202,7 +202,7 @@ exports.getAllUser = catchAsynError(async (req, res, next) => {
 
 //get single user detail (by admin)
 exports.getSingleUser = catchAsynError(async (req, res, next) => {
-  const user = await User.find(req.params.id);
+  const user = await User.findById(req.params.id);
 
   if (!user) {
     return next(

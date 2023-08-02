@@ -10,9 +10,9 @@
   background-color: rgb(221, 221, 221);
 
   display: flex;
-  margin: 2vmax;
+
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 .confirmShippingArea {
   padding: 5vmax;
@@ -94,6 +94,7 @@
 .confirmOrderPage {
   height: 100vh;
   display: grid;
+  padding: 2vmax;
 
   grid-template-columns: 6fr 4fr;
   background-color: white;

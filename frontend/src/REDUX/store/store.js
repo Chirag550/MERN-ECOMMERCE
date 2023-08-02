@@ -5,12 +5,15 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+
 import {
   CreateProductReducer,
   DeleteProductReducer,
   NewReviewReducer,
   UpdateProductReducer,
   productReducer,
+  productReviewsReducer,
+  reviewReducer,
 } from "../reducers/productReducer";
 import { productDetailsReducer } from "../reducers/productReducer";
 
@@ -18,6 +21,8 @@ import {
   userReducer,
   ProfileReducer,
   ForgotPasswordReducer,
+  allUsersReducer,
+  userDetailsReducer,
 } from "../reducers/userReducer";
 import { CartReducer } from "../reducers/cartReducer";
 import {
@@ -44,6 +49,10 @@ const reducer = combineReducers({
   UpdateProduct: UpdateProductReducer,
   AdminAllOrder: AllOrdersReducer,
   AdminOrder: AdminOrderReducer,
+  allUsers: allUsersReducer,
+  userDetails: userDetailsReducer,
+  productReviews: productReviewsReducer,
+  review: reviewReducer,
 });
 const initialState = {
   cart: {
